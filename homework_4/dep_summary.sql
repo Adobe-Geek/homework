@@ -1,8 +1,8 @@
 create  or replace view department_summary as 
-select d.department_id, d.department_name as department_name, d.department_head,
-count(e.employee_id) as employee_count
+select d.id, d.name as department_name, d.manager,
+count(e.id) as employee_count
 from departments d
-left join employees e on d.department_id = e.department_id
-group  by d.department_id, d.department_name, d.department_head;
+left join employees e on d.id = e.department_id
+group  by d.id, d.name, d.manager;
 
 select * from department_summary;
